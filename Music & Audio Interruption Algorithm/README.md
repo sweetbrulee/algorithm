@@ -16,7 +16,7 @@ When dealing with situations such as ffmpeg audio modulation or pause/resume act
 
 ### PS-RS Model
 
-- There are three variables in total: `start_timestamp`, `clockCR`, `clockSP`. `start_timestamp` is used by ffmpeg-like backends to play the audio from a specific timestamp.
+- There are three variables in total: `start_time`, `clockCR`, `clockSP`. `start_time` is used by ffmpeg-like backends to play the audio from a specific timestamp.
 
 - Sequence Diagram  
   <img src=".blob/ps-rs model.jpg" alt="ps-rs model" width="200"/>
