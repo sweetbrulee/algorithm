@@ -24,6 +24,9 @@ When dealing with situations such as ffmpeg audio modulation or pause/resume act
 - `x: start_time += clockCR - clockSP`
 - `y: clockSP := clockCR`
 
+- We then use timer diagram for further explanation.  
+  <img src=".blob/ps-rs model timer diagram.jpg" alt="timer diagram" width="800"/>
+
 ## Case Check
 
 ### Case 1
