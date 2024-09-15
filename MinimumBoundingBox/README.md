@@ -33,3 +33,7 @@ pnpm dev
 - **Mouse Left (Click on TransformControls Widget):** 拖动物体
 - **Shift + Mouse Left:** 选中多个物体
 - **Del:** 删除选中物体
+
+#### 触控设备:
+
+- **长按:** 新增物体

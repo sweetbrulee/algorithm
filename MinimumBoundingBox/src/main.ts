@@ -5,6 +5,7 @@ import { ControlsManager } from "./controls";
 import { SelectionManager } from "./selection";
 import { BoundingBoxManager } from "./boundingBox";
 import { computeCentroid } from "./utils";
+import { addTouchEventListener } from "./touch";
 
 // 初始化 SceneManager
 const sceneManager = new SceneManager();
@@ -118,14 +119,25 @@ document.addEventListener("keyup", (event) => {
   }
 });
 
+addTouchEventListener(onAddPoint);
+
 // 点击新增点的逻辑
-function onAddPoint(event: MouseEvent) {
-  const mouse = new THREE.Vector2(
-    (event.clientX / window.innerWidth) * 2 - 1,
-    -(event.clientY / window.innerHeight) * 2 + 1
-  );
+function onAddPoint(event: MouseEvent | TouchEvent) {
+  let coords = new THREE.Vector2();
+  if (event instanceof MouseEvent) {
+    coords = new THREE.Vector2(
+      (event.clientX / window.innerWidth) * 2 - 1,
+      -(event.clientY / window.innerHeight) * 2 + 1
+    );
+  } else if (event instanceof TouchEvent) {
+    const touch = event.touches[0];
+    coords = new THREE.Vector2(
+      (touch.clientX / window.innerWidth) * 2 - 1,
+      -(touch.clientY / window.innerHeight) * 2 + 1
+    );
+  }
   const raycaster = new THREE.Raycaster();
-  raycaster.setFromCamera(mouse, sceneManager.camera);
+  raycaster.setFromCamera(coords, sceneManager.camera);
 
   // 使用已经存在的 testPlane 进行交叉检测
   const intersects = raycaster.intersectObject(sceneManager.testPlane);
