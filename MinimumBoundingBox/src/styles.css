@@ -1,0 +1,10 @@
+/* 自定义样式 */
+body {
+  user-select: none; /* 禁止用户选择文本，防止拖拽时出现文本选择 */
+
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* 隐藏滚动条 */
+}
