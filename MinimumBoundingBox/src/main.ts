@@ -51,6 +51,7 @@ selectionManager.setSelectionChangeCallback(() => {
       selectionManager.selectedPoints.map((p) => p.position)
     );
     dummy.position.copy(centroid);
+    previousDummyPosition.copy(centroid);
     controlsManager.transformControls.attach(dummy);
   } else {
     // 无选择，分离 TransformControls
